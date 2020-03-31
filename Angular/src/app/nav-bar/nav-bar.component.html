@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-expand-sm bg-dark">
+    <a class="navbar-brand text-warning" href="#">THE SHOPPING CART</a>
+    <div style="display: flex ; justify-content: space-between ; margin-left: auto">
+      <div *ngIf="isUserLoggedIn1()"><a class="nav-link text-warning" href="/profile">Welcome {{user1}} </a></div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/home">Home  <i class="fas fa-home"></i></a></div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/user-cart">Cart  <i class="fas fa-shopping-cart"></i></a></div>
+      <div *ngIf="isUserLoggedIn()"><a class="nav-link text-warning" href="/login">LogOut  <i class="fa fa-arrow-right" ></i></a></div>
+      <div *ngIf="!isUserLoggedIn()"><a class="nav-link text-warning" href="/login">LogIn  <i class="fa fa-user" aria-hidden="true"></i></a></div>
+      <div *ngIf="!isUserLoggedIn()"><a class="nav-link text-warning" href="/sign-up">SignUp  <i class="fa fa-users" aria-hidden="true"></i></a></div>
+    </div>
+  </nav>

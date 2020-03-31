@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+<nav class="navbar navbar-expand bg-light navbar-dark text-center justify-content-between my-2">
+ 
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Men')" >MEN </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Kids')" >KIDS </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Women')" >WOMEN </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Electronics')" >ELECTRONICS </button></div>
+  <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Sports')" >SPORTS </button></div>
+
+  <div>
+   <form class="form-inline mx-auto " action="/action_page.php">
+     <input class="form-control mr-2 ml-auto" type="text" placeholder="Search for product" size="60">
+     <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i>  Search </button>
+   </form>
+   </div>
+ </nav>
+
+<div class="container-fluid row mx-0 p-2  bg-light" style="background: lightgray ;"> 
+ <div class="ml-5 col-5 p-2 " style=" box-shadow:1px 5px 5px 5px rgba(0, 0, 0, 0.5) ; background: white ; margin-bottom: 2rem ">
+   <div class="container p-4 text-center">
+      <img src="{{data2.img}}" style="width: 70% ; height:50%">
+   </div>
+ </div>
+ <div class="ml-4 col-6 p-2" style="  box-shadow:1px 5px 5px 5px rgba(0, 0, 0, 0.5) ; background: white ; margin-bottom: 2rem">
+   <div class="container p-2 ml-4 mr-4 ">
+      <div>
+          <h2 class="font-weight-bolder">{{data2.brand}}</h2>
+      </div>
+      <div class="font-weight-lighter " style="color: dimgray">
+        <h5>{{data2.name}}</h5>
+      </div>
+      <hr style="align-self: center; width: 90%;margin-left: 0; color: black">
+      <div class="font-weight-lighter " style="color: dimgray">
+          <h5>{{data2.description}}</h5>
+      </div>
+      <div>
+         <h4 class="font-weight-bolder">₹ {{data2.price}}</h4>
+      </div>
+      <hr style="align-self: center; width: 90%;margin-left: 0; color: black">
+      <div class="font-weight-lighter">
+           <h4>Select Size:</h4> 
+           <br>
+           <ul class="ml-0 font-weight-bold " style="list-style: none ; display: flex ;width: 90% ; color: dimgray ; justify-content: space-between">
+               <li><button class="bg-dark text-warning rounded"  name="size"> S</button></li>
+               <li><button class="bg-dark text-warning rounded"  name="size"> M</button></li>
+               <li><button class="bg-dark text-warning rounded"  name="size"> L</button></li>
+               <li><button class="bg-dark text-warning rounded"  name="size"> XL</button></li>
+               <li><button class="bg-dark text-warning rounded"  name="size"> XXL</button></li>
+               <li><button class="bg-dark text-warning rounded"  name="size"> XXL</button></li>
+           </ul>
+      </div>
+      <br>
+      <div>
+          <button class="btn btn-warning " style="width: 25%" (click)="add(data2.key)">ADD TO CART</button>
+      </div>
+    </div>
+ </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container-fluid bg-light" style="padding:10rem ; ">
+    <div class="col-sm-4 mx-auto" style="padding: 1rem;background: rgba(0, 0, 0, 0.8); box-shadow:6px 6px 6px rgba(0, 0, 0, 0.5);  border: 2px solid black">
+      <div class="text-warning ">
+         <div class="text-center"><h2>SIGN-UP</h2></div>
+         <div class="container">
+           <div>
+           <form #userForm="ngForm" (ngSubmit)="Onsubmit()" novalidate>
+            <div class="form-group"  >
+                <label  for="usr">Email:</label>
+                <input type="email" required #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched" class="form-control" id="email" name="email" placeholder="Enter Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" [(ngModel)]="post1.email">
+                <small class="text-danger" [class.d-none]="mail.valid || mail.untouched" >Enter an valid E-mail</small>
+              </div>
+             <div class="form-group">
+               <label  for="usr">Username:</label>
+               <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="usr" name="username" placeholder="Enter Username" [(ngModel)]="post1.username">
+               <small class="text-danger" [class.d-none]="name.valid || name.untouched" >Name is required</small>
+              </div>
+             <div class="form-group">
+               <label for="pwd">Password:</label>
+               <input type="password" required #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" class="form-control" id="pwd" name="password" placeholder="Enter Password" [(ngModel)]="post1.password">
+               <small class="text-danger" [class.d-none]="pass.valid || pass.untouched" >Password is required</small>
+              </div>
+             <div>
+                <input type="checkbox" required name="accept" ><a href="#">  Accept Terms & Conditions</a>
+                <br><small class="text-danger" >Please accept Terms & Conditions</small>
+              </div>
+            <br>
+            <div><button [disabled]="userForm.form.invalid" class="btn btn-warning text-dark" type="submit" style="width: 100% ;">Submit</button></div>
+
+           </form>
+           <br>
+           </div>
+         </div>
+      </div>
+    </div>

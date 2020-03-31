@@ -1,0 +1,43 @@
+<div class="container-fluid bg-light mx-0 p-2 row">
+    <div class="col-11 mx-auto p-2" style="background: white;  box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.3);">
+     <div class="container p-5">
+      <div class="d-flex justify-content-between">
+       <div>
+       <h4>Hello {{user1}}</h4>
+       <h6 class="font-weight-lighter">My Profile</h6>
+      </div>
+      <div class="d-flex ">
+      <div><button class="btn btn-warning mr-2" (click)="edituser()">Edit Profile</button></div>
+      <div><button class="btn btn-warning mr-2" *ngIf="isadmin()" (click)="addproduct()">Add Product</button></div>
+     </div>
+     </div>
+      <hr> 
+      <div class="container m-3">
+          <h5 class="font-weight-light">Your Orders </h5>
+          <div class="my-4" *ngFor="let data of Myorder">
+            <div class="container m-1 row" style="border: 1px solid darkgray;  box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.3);">
+             <div class="col-4 p-3">
+              <img  src="{{data.item.img}}" style="width: 85% ; height:85%;">
+             </div>
+             <div class="col-8 p-3">
+               <div class="row">
+                   <div class="col-6"><h6>Order Id : {{data.orderId}}</h6></div>
+                   <div class="col-6"><h6>Order Date : {{data.date1}}</h6></div>
+               </div>  
+               <hr>
+               <h5>{{data.item.name}}</h5>
+               <h6>{{data.item.subcategory}}</h6>
+               <h6>{{data.item.description}}</h6>
+               <h6>Quantity : {{data.quantity}}</h6>
+               <h6>Total Price : ₹  {{data.item.price * data.quantity}}</h6>
+               <div class="d-flex">
+                       <div><h6>Status : </h6></div>
+                       <div class="ml-2"><h6 class="text-success"> DELIVERED</h6></div>
+                   </div> 
+             </div>
+            </div>
+          </div>
+      </div>
+      </div>
+   </div>
+   </div>

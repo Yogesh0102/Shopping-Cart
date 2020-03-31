@@ -1,0 +1,75 @@
+ 
+<nav class="navbar navbar-expand bg-light navbar-dark text-center justify-content-between my-3">
+  
+    <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Men')" >MEN </button></div>
+    <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Kids')" >KIDS </button></div>
+    <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Women')" >WOMEN </button></div>
+    <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Electronics')" >ELECTRONICS </button></div>
+    <div class="mx-auto font-weight-bold"><button class="btn btn-light" (click)="goTo('Sports')" >SPORTS </button></div>
+    
+  <div>
+   <form class="form-inline mx-auto " action="/action_page.php">
+     <input class="form-control mr-2 ml-auto" type="text" placeholder="Search for product" size="60" name="SEARCH" [(ngModel)]="SEARCH">
+     <button class="btn btn-warning" type="submit" (click)="search()"><i class="fas fa-search"></i>  Search </button>
+   </form>
+   </div>
+  </nav>
+  
+  <div class="container-fluid row bg-light mx-0 p-2 d-flex " style=" justify-content: space-between">
+      <div class="col-2 ">
+           <div class="container text-dark" style="background: white ; box-shadow:1px 1px 2px 2px rgba(0, 0, 0, 0.4) ;">
+              <form>
+              <div class="text-center text-dark p-4 font-weight-bold" >
+                   <h4>Add Filters</h4>
+               </div>
+              <div class="text-center"><button class="btn btn-warning " (click)="clear()">Clear Filters</button></div>
+               <hr>
+                <div class="font-weight-lighter text-dark" >
+                  <h5>Prices</h5>
+                </div>
+                  <div *ngFor="let p of prices">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="{{p.first}}" name="price1" (change)="submitfilter2($event,p.first,p.last)" >
+                      <label class="custom-control-label" for="{{p.first}}">{{p.first}} - {{p.last}}</label>
+                    </div>    
+                  </div>
+                  <hr>
+                  <div class="font-weight-lighter" >
+                    <h5>Categories</h5>
+                  </div>
+                     <div *ngFor="let s of sub">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="{{s}}" name="sub1" (change)="submitfilter1($event,s)">
+                        <label class="custom-control-label" for="{{s}}">{{s}}</label>
+                      </div> 
+                    </div>
+                    <hr>
+                   </form>         
+           </div>
+     </div>
+    <div class="col-10"> 
+     <div style="background: white ; box-shadow:1px 1px 2px 2px rgba(0, 0, 0, 0.4) ;">
+     <div class="row ml-2" >
+      <div *ngFor="let item of Data ">
+         <div class="column" style="width: 19rem">
+          <div class="card m-3 " style=" box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.3) ;" >
+          <img class="card-img-top" src="{{item.img}}" alt="Card image" style="width:100% ; height: 300px;">
+          <div class="card-body">
+              <h4 class="card-title">{{item.name}}</h4>
+            <h4 class="card-text">₹  {{item.price}}</h4>
+            <p class="card-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis ">{{item.description}}</p>
+            <div class="d-flex justify-content-between">
+            <div><button class="btn btn-warning" (click)="add(item.key)" >Add to cart</button></div>
+            <div class="ml-1"><button class="btn btn-info" (click)="goToDetails(item.key)">More Details</button></div>
+            </div>
+            <br>
+            <button class="btn btn-success" *ngIf="isAdmin()" (click)="editproduct(item.key)">Edit Product</button>
+          </div>
+        </div>
+        </div>
+  
+        </div>
+     </div>
+     </div>
+     </div>
+  </div>

@@ -1,0 +1,5 @@
+[
+  { "email" : "raj@gmail.com" , "name" : "ram" , "password" : "ram1" },
+  { "email" : "bheem@gmail.com" , "name" : "bharat" , "password" : "ram2" },
+  { "email" : "lucky@gmail.com" , "name" : "lakshman" , "password" : "ram3" }
+]

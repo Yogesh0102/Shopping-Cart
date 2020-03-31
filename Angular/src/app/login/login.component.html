@@ -1,0 +1,30 @@
+<div class="container-fluid bg-light" style="padding:10rem ;">
+    <div class="col-sm-4 mx-auto" style="padding: 1rem;background: rgba(0, 0, 0, 0.8); border: 2px solid black ; box-shadow:6px 6px 6px rgba(0, 0, 0, 0.5)">
+      <div class="text-warning ">
+         <div class="text-center"><h2>LOGIN</h2></div>
+         <div class="container">
+           <div>
+           <form action="/home" #userForm="ngForm" (ngSubmit)="check_login(name.value,pass.value)" novalidate>
+             <div class="form-group">
+               <label  for="usr">Username:</label>
+               <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="usr" name="username" placeholder="Enter Username" ngModel>
+              <small class="text-danger" [class.d-none]="name.valid || name.untouched" >Name is required</small>
+             </div>
+             <div class="form-group">
+               <label for="pwd">Password:</label>
+               <input type="password" required #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" class="form-control" id="pwd" name="password" placeholder="Enter Password" ngModel>
+              <small class="text-danger" [class.d-none]="pass.valid || pass.untouched" >Password is required</small>
+             </div>
+             <br>
+             <button [disabled]="userForm.form.invalid" class="btn btn-warning text-dark" type="submit" style="width: 100% ;">Submit</button>
+           </form>
+           <br>
+           </div>
+          <div class="text-center">Don't have an account ?</div>
+          <br>
+          <form action="/sign-up" (ngSubmit)="Sign()">
+          <div><button class="btn btn-warning text-dark " type="submit" style="width: 100% ; ">Create an Account</button></div>
+           </form>
+         </div>
+      </div>
+    </div>
